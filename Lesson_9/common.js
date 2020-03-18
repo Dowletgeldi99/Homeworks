@@ -54,4 +54,8 @@ console.log(barsik.dailyNorm(600));
 barsik.stroke().feed();
 
 console.log(barsik.dailyNorm(250));
+<<<<<<< HEAD
 barsik.stroke().feed();
+=======
+barsik.stroke().feed();
+>>>>>>> 0b979797e52879feb2b76ea93d50e680ec77b9f3
