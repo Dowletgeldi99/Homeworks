@@ -21,7 +21,7 @@ var initialObj = {
 var clonedObj = {};
 
 function deepClone(firstObject) {
-    var obj = {};
+    var obj = {}; 
 
     for (var temp in firstObject) {
         if( typeof firstObject[temp] === 'object' ) {
