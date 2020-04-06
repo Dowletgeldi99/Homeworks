@@ -6,14 +6,15 @@ var block = document.getElementById('block'),
 block.appendChild(newParagraph1);
 block.appendChild(newParagraph2);
 
-newParagraph1.innerHTML += '<a href="https://www.google.ru/">Google</a> asdafgdghjgfd <a href="https://www.google.ru/">Google</a>';
-newParagraph2.innerHTML += '<a href="https://www.google.ru/">Google</a> asdsdfghjgfds <a href="https://www.google.ru/">Google</a>';
+newParagraph1.innerHTML += '<a href="https://www.google.ru">Google</a> asdafgdghjgfd <a href="https://www.google.ru">Google</a>';
+newParagraph2.innerHTML += '<a href="https://www.google.ru">Google</a> asdsdfghjgfds <a href="https://www.google.ru">Google</a>';
 
-newParagraph2.addEventListener('click', function() {
-    if (localStorage.getItem('Google') == null) {
-        localStorage.setItem('Google' , JSON.stringify(key));
+newParagraph2.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (localStorage.getItem(newParagraph2.firstElementChild.innerText) == null) {
+        localStorage.setItem(newParagraph2.firstElementChild.innerText , JSON.stringify(key));
         alert('Link saved!');
     } else { 
-        alert( JSON.parse(localStorage.getItem('Google')).path );
+        alert( newParagraph2.firstElementChild.getAttribute('href') );
     }
 });

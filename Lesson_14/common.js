@@ -13,9 +13,11 @@ function a() {
     var yValue = document.getElementById('y').value;
 
     if( (parseInt(xValue) != xValue) || xValue > 10 || xValue < 1) {
-        alert('Error!');
+        alert('Вы ввели не корректные данные! Введите от 1 до 10');
+        btn.disabled = true;
     } else if ((parseInt(yValue) != yValue) || yValue > 10 || yValue < 1) {
-        alert('Error!');
+        alert('Вы ввели не корректные данные! Введите от 1 до 10');
+        btn.disabled = true;
     } else {
         
         document.body.appendChild(board);
@@ -46,17 +48,20 @@ function a() {
     }
 }
 btn.onclick = a;
+inputX.onkeyup = isEmpty;
+inputY.onkeyup = isEmpty;
+inputX.onkeydown = disableButton;
+inputY.onkeydown = disableButton;
 
-inputX.addEventListener('keyup', function() {
-    if ( document.getElementById('x').value !== '' && document.getElementById('y').value !== '' ) {
+function isEmpty() {
+    if( !isNaN(parseInt(document.getElementById('x').value)) && !isNaN(parseInt(document.getElementById('y').value)) ) {
         btn.disabled = false;
     }
-});
-inputY.addEventListener('keyup', function() {
-    if ( document.getElementById('x').value !== '' && document.getElementById('y').value !== '' ) {
-        btn.disabled = false;
-    }   
-});
+}
+
+function disableButton() {
+    btn.disabled = true;
+}
 
 board.onclick = function(event) {
     var allChessElements = document.getElementsByClassName('block');
