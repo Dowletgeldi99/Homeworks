@@ -1,0 +1,15 @@
+.tabs {
+    display: inline-block;
+    margin-left: 15px;
+    border: 1px solid blue;
+    background-color: red;
+    margin-top: 30px;
+}
+
+.active {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
